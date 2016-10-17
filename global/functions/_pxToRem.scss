@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/**
+ * Convert any unit from px to rem
+ *
+ * @param $size - the value in pixel you want to convert
+ *
+ * e.g. p { width: pxToRem(30px);}
+ *
+ */
+
+// 从给定的 px 单位转到 rem 单位
+// 默认的 root em 为 100px
+@function pxToRem($size, $rem: 100px) {
+    $remSize: $size / $rem;
+    @return #{$remSize}rem;
+}

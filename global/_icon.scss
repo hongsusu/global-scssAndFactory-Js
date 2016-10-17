@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+/* icon 图标库 */
+.icon {
+    display: inline-block;
+    width: pxToRem(16px);
+    height: pxToRem(16px);
+    background: no-repeat center center;
+}
+
+.icon-gender-male {
+    background-image: url("/qingniwan/img/male.svg");
+}
+
+.icon-gender-female {
+    background-image: url("/qingniwan/img/female.svg");
+}
+
+.icon-diamond {
+    background-image: url("/qingniwan/img/diamond.png");
+}
+
+.icon-arrow-right {
+    background-image: url("/qingniwan/img/arrow-right.png");
+}
+
+.icon {
+    background-size: contain;
+}
