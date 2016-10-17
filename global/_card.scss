@@ -1,0 +1,518 @@
+@charset "utf-8";
+
+/**
+ * media 卡片组件通用样式
+ */
+.layout-flex-container {
+    .media-left {
+        /* 活动海报 */
+        .thumbnail {
+        }
+    }
+    .media-body {
+        width: 100%; // 覆盖 Bootstrap 默认的 width: 10000px;
+        .media-heading {
+            @include fontSizeToRem(30px);
+        }
+        .media-content {
+            @include fontSizeToRem(26px);
+        }
+    }
+}
+
+/* 发起邀约的用户 - 资料卡片 */
+.invite-user-card {
+    margin-top: pxToRem(20px);
+    padding-bottom: pxToRem(30px);
+    border-bottom: 1px solid #e1e1e1;
+    /* 用户信息 */
+    .media {
+        position: relative;
+        .media-left {
+            width: pxToRem(222px); // TODO: 移动端原生浏览器 flex 布局问题
+            padding-right: pxToRem(20px);
+            /* 用户头像 */
+            .thumbnail {
+                width: pxToRem(152px);
+                height: pxToRem(174px);
+                margin-bottom: 0;
+                padding: 0;
+                border: 0 none;
+                border-radius: pxToRem(4px);
+                background: #f5f5f5 no-repeat center;
+                background-size: cover;
+            }
+        }
+        .media-body {
+            .media-heading {
+                padding-top: pxToRem(10px);
+                /* 用户昵称 */
+                .user-name {
+                    @include fontSizeToRem(30px);
+                }
+                /* 性别 & 年龄标签 */
+                .badge-gender {
+
+                }
+                /* 星座 */
+                .user-zodiac {
+                    margin-left: pxToRem(10px);
+                    line-height: 1;
+                    @include fontSizeToRem(24px);
+                    color: #666;
+                }
+            }
+            .media-content {
+                &.user-tags {
+                    color: #888;
+                }
+                &.invite-metadata {
+                    color: #252525;
+                }
+            }
+        }
+        .invite-coin {
+            position: absolute;
+            top: pxToRem(10px);
+            right: pxToRem(10px);
+            font-size: pxToRem(22px);
+            color: #888;
+            * {
+                vertical-align: middle;
+            }
+            .icon {
+                width: pxToRem(30px);
+                height: pxToRem(30px);
+            }
+        }
+    }
+    /* 用户填写的邀约内容 */
+    .invite-content {
+        padding: pxToRem(30px) pxToRem(5px) 0;
+        @include fontSizeToRem(26px);
+        color: #666;
+    }
+    /* 定制 - 邀约列表页的用户资料卡片 */
+    &.inviteListContainer {
+        margin-top: pxToRem(32px);
+        padding-bottom: pxToRem(32px);
+        & > .col-xs-12 {
+            padding-left: 0;
+        }
+        /* 用户信息 */
+        .media {
+            .media-left {
+                width: pxToRem(270px); // TODO: 移动端原生浏览器 flex 布局问题
+                padding-right: pxToRem(20px);
+                /* 用户头像 */
+                .thumbnail {
+                    width: pxToRem(200px);
+                    height: pxToRem(228px);
+                    border-radius: pxToRem(0px) pxToRem(7px) pxToRem(7px) pxToRem(0px);
+                    background-color: #d8d8d8;
+                }
+            }
+        }
+    }
+}
+
+/* 活动简介卡片 (默认) */
+.invite-activity-card {
+    .media {
+        position: relative;
+        color: #000;
+        .media-left {
+            width: pxToRem(222px); // TODO: 移动端原生浏览器 flex 布局问题
+            padding-right: pxToRem(20px);
+            /* 活动海报 */
+            .thumbnail {
+                width: pxToRem(152px);
+                height: pxToRem(174px);
+                margin-bottom: 0;
+                padding: 0;
+                border: 0 none;
+                border-radius: 0;
+                background: #f5f5f5 no-repeat center;
+                background-size: cover;
+            }
+        }
+        .media-body {
+            padding-right: pxToRem(40px);
+            .media-heading {
+                margin-top: pxToRem(10px);
+                /* 活动标题 */
+                &.activity-name {
+                    @include fontSizeToRem(30px);
+                }
+            }
+            .media-content {
+                color: #666;
+                & > * {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+        .media-footer {
+            position: absolute;
+            top: 50%;
+            right: pxToRem(20px);
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            -o-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            font-size: pxToRem(22px);
+            color: #888;
+            * {
+                vertical-align: middle;
+            }
+            .icon {
+                width: pxToRem(13px);
+                height: pxToRem(20px);
+            }
+        }
+    }
+
+    /* 活动简介卡片(大) */
+    &.card-large {
+        & > .col-xs-12 {
+            padding-left: 0;
+            /*padding-right: 0;*/
+            .media {
+                .media-left {
+                    width: pxToRem(350px); // TODO: 移动端原生浏览器 flex 布局问题
+                    /* 活动海报 */
+                    .thumbnail {
+                        width: pxToRem(220px);
+                        height: pxToRem(290px);
+                    }
+                }
+            }
+        }
+
+    }
+
+    /* 活动简介卡片(小) */
+    &.card-small {
+        margin-top: pxToRem(30px);
+        margin-bottom: pxToRem(30px);
+        .media {
+            .media-left {
+                /* 活动海报 */
+                .thumbnail {
+
+                }
+            }
+        }
+    }
+}
+
+/* 用户评论列表卡片 */
+.invite-user-comment-container {
+    padding-bottom: pxToRem(50px);
+    .media.invite-user-comment-card {
+        position: relative;
+        background-color: #fff;
+        margin-top: pxToRem(20px);
+        margin-bottom: pxToRem(20px);
+        .media-left {
+            width: pxToRem(140px); // TODO: 移动端原生浏览器 flex 布局问题
+            padding-right: pxToRem(20px);
+            /* 用户头像 */
+            .thumbnail {
+                width: pxToRem(100px);
+                height: pxToRem(114px);
+                margin-bottom: 0;
+                padding: 0;
+                border: 0 none;
+                border-radius: pxToRem(4px);
+                background: #f5f5f5 no-repeat center;
+                background-size: cover;
+            }
+        }
+        .media-body {
+            .media-heading {
+                padding-top: pxToRem(10px);
+                /* 用户昵称 */
+                .user-comment-name {
+                    @include fontSizeToRem(28px);
+                    color: #666;
+                }
+                /* 性别 & 年龄标签 */
+                .user-comment-gender {
+                    margin-left: pxToRem(10px);
+                    font-weight: normal;
+                    font-size: pxToRem(18px);
+                    &.user-comment-gender-male {
+                        background-color: #99BBf7;
+                    }
+                    &.user-comment-gender-female {
+                        background-color: #f994ab;
+                    }
+                    & > * {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                }
+                /* 星座 */
+                .user-comment-zodiac {
+                    margin-left: pxToRem(10px);
+                    @include fontSizeToRem(24px);
+                    color: #666;
+                }
+            }
+            .media-content {
+                color: #2b2b36;
+            }
+        }
+        .media-footer {
+            position: absolute;
+            top: pxToRem(10px);
+            right: pxToRem(10px);
+            font-size: pxToRem(22px);
+            color: #888;
+            * {
+                vertical-align: middle;
+            }
+            .icon {
+                width: pxToRem(30px);
+                height: pxToRem(30px);
+            }
+        }
+    }
+
+}
+
+/* 发起过 INVITE 的用户列表 */
+.invite-user-initiate-container {
+    padding-bottom: pxToRem(20px);
+    .media.invite-user-initiate-card {
+        position: relative;
+        background-color: #fff;
+        margin-top: pxToRem(20px);
+        margin-bottom: pxToRem(20px);
+        .media-left {
+            width: pxToRem(140px); // TODO: 移动端原生浏览器 flex 布局问题
+            padding-right: pxToRem(20px);
+            /* 用户头像 */
+            .thumbnail {
+                width: pxToRem(100px);
+                height: pxToRem(114px);
+                margin-bottom: 0;
+                padding: 0;
+                border: 0 none;
+                border-radius: pxToRem(4px);
+                background: #f5f5f5 no-repeat center;
+                background-size: cover;
+            }
+        }
+        .media-body {
+            .media-heading {
+                padding-top: pxToRem(10px);
+                /* 用户昵称 */
+                .user-initiate-name {
+                    @include fontSizeToRem(28px);
+                    color: #2B2B36;
+                }
+                /* 性别 & 年龄标签 */
+                .user-initiate-gender {
+                    margin-left: pxToRem(10px);
+                    font-weight: normal;
+                    font-size: pxToRem(18px);
+                    &.user-initiate-gender-male {
+                        background-color: #99BBf7;
+                    }
+                    &.user-initiate-gender-female {
+                        background-color: #f994ab;
+                    }
+                    & > * {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                }
+                /* 星座 */
+                .user-initiate-zodiac {
+                    margin-left: pxToRem(10px);
+                    @include fontSizeToRem(24px);
+                    color: #666;
+                }
+            }
+            .media-content {
+                color: #888;
+            }
+        }
+        .invite-initiate-footer {
+            position: absolute;
+            top: pxToRem(10px);
+            right: pxToRem(10px);
+            font-size: pxToRem(22px);
+            color: #888;
+            * {
+                vertical-align: middle;
+            }
+            .icon {
+                width: pxToRem(30px);
+                height: pxToRem(30px);
+            }
+        }
+    }
+
+}
+
+/* 喜欢这个活动的用户列表 */
+.invite-user-liked-container {
+    padding-bottom: pxToRem(50px);
+    .media.invite-user-liked-card {
+        position: relative;
+        background-color: #fff;
+        margin-top: pxToRem(20px);
+        margin-bottom: pxToRem(20px);
+        .media-left {
+            width: pxToRem(140px); // TODO: 移动端原生浏览器 flex 布局问题
+            padding-right: pxToRem(20px);
+            /* 用户头像 */
+            .thumbnail {
+                width: pxToRem(100px);
+                height: pxToRem(114px);
+                margin-bottom: 0;
+                padding: 0;
+                border: 0 none;
+                border-radius: pxToRem(4px);
+                background: #f5f5f5 no-repeat center;
+                background-size: cover;
+            }
+        }
+        .media-body {
+            .media-heading {
+                padding-top: pxToRem(10px);
+                /* 用户昵称 */
+                .user-liked-name {
+                    @include fontSizeToRem(28px);
+                    color: #2B2B36;
+                }
+                /* 性别 & 年龄标签 */
+                .user-liked-gender {
+                    margin-left: pxToRem(10px);
+                    font-weight: normal;
+                    font-size: pxToRem(18px);
+                    &.user-liked-gender-male {
+                        background-color: #99BBf7;
+                    }
+                    &.user-liked-gender-female {
+                        background-color: #f994ab;
+                    }
+                    & > * {
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+
+                }
+                /* 星座 */
+                .user-liked-zodiac {
+                    margin-left: pxToRem(10px);
+                    @include fontSizeToRem(24px);
+                    color: #666;
+                }
+            }
+            .media-content {
+                color: #888;
+            }
+        }
+        .invite-liked-footer {
+            position: absolute;
+            top: pxToRem(10px);
+            right: pxToRem(10px);
+            font-size: pxToRem(22px);
+            color: #888;
+            * {
+                vertical-align: middle;
+            }
+            .icon {
+                width: pxToRem(30px);
+                height: pxToRem(30px);
+            }
+        }
+    }
+
+}
+
+/* 通用信息 bar - 浏览数 评论数 发起邀约 喜欢这个活动 汇总 */
+.invite-extra {
+    border-top: 1px solid #ececec;
+    border-bottom: 1px solid #ececec;
+    @include fontSizeToRem(24px);
+    line-height: 3;
+    color: #aeaeae;
+    & > * {
+        vertical-align: middle;
+    }
+}
+
+/* 淡色间隔条 */
+.card-gutter {
+    content: '';
+    display: block;
+    height: pxToRem(30px);
+    background-color: #f7f7f7;
+}
+
+/* 商务合作 */
+.cooperation-card {
+    color: #2B2B36;
+    font-size: pxToRem(30px);
+    a {
+        display: inline-block;
+    }
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .cooperation-card-person {
+        height: pxToRem(180px);
+        line-height: pxToRem(180px);
+        img {
+            margin-left: pxToRem(30px);
+            margin-right: pxToRem(30px);
+            width: pxToRem(128px);
+            vertical-align: middle;
+
+        }
+    }
+    .cooperation-card-person:after {
+        content: "";
+        display: block;
+        // height:1px;
+        border: 0.5px solid #eeeeee;
+    }
+
+    .cooperation-card-tel {
+        height: pxToRem(100px);
+        line-height: pxToRem(100px);
+        .telText {
+            margin-left: pxToRem(20px);
+            margin-right: pxToRem(18px);
+        }
+
+        img {
+            width: pxToRem(46px);
+            margin-right: pxToRem(20px);
+        }
+        .mailto {
+            color: #4A90E2;
+        }
+        .telTextStyle {
+            padding-right: 0 !important;
+        }
+
+    }
+    &:after {
+        content: "";
+        display: block;
+        // height:1px;
+        border: 0.5px solid #eeeeee;
+    }
+
+}

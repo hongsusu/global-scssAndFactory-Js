@@ -1,0 +1,182 @@
+@charset "utf-8";
+
+/**
+ * 布局用模块
+ */
+
+/**
+ * layout 工具库
+ *
+ * 命名规则:
+ * 1. layout- 为布局用工具库的统一前缀标识符
+ * 2. m 和 p 为 CSS 属性标识符, 分别代表 margin 和 padding
+ * 3. w h t r b l 分别代表 width height top right bottom left
+ * 4. 最后一位为数字位, 表示 CSS 属性的值
+ *
+ * 示例:
+ *      layout-m10  {margin: 10rem;}
+ *      layout-mw10  {margin-left:10rem;margin-right:10rem;}
+ *      layout-pr20  {padding-right:20rem;}
+ */
+@for $i from 1 to 11 {
+    .layout-m#{$i * 5} {
+        margin: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-mw#{$i * 5} {
+        margin-left: #{$i * 5 / $GlobalRootEmSize}rem;
+        margin-right: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-mh#{$i * 5} {
+        margin-top: #{$i * 5 / $GlobalRootEmSize}rem;
+        margin-bottom: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-mt#{$i * 5} {
+        margin-top: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-mr#{$i * 5} {
+        margin-right: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-mb#{$i * 5} {
+        margin-bottom: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-ml#{$i * 5} {
+        margin-left: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-p#{$i * 5} {
+        padding: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-pw#{$i * 5} {
+        padding-left: #{$i * 5 / $GlobalRootEmSize}rem;
+        padding-right: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-ph#{$i * 5} {
+        padding-top: #{$i * 5 / $GlobalRootEmSize}rem;
+        padding-bottom: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-pt#{$i * 5} {
+        padding-top: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-pr#{$i * 5} {
+        padding-right: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-pb#{$i * 5} {
+        padding-bottom: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+    .layout-pl#{$i * 5} {
+        padding-left: #{$i * 5 / $GlobalRootEmSize}rem;
+    }
+}
+
+/**
+ * flex 布局
+ */
+.layout-flex-container {
+    /* webkit, moz历史版本兼容 */
+    display: -webkit-box;
+    display: -moz-box;
+    /* IE私有写法 */
+    display: -ms-flexbox;
+    /* 标准写法 */
+    display: -webkit-flex;
+    display: flex;
+    /* 子元素 */
+    /* 填充方式: 默认 */
+    & > .layout-flex-item {
+        /* webkit, moz历史版本兼容 */
+        -webkit-box-flex: initial;
+        -moz-box-flex: initial;
+        /* IE私有写法 */
+        -ms-flex: auto;
+        /* 标准写法 */
+        -webkit-flex: auto;
+        flex: auto;
+    }
+    /* 方向: 横向排列 */
+    &.layout-flex-row {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    /* 方向: 竖直排列 */
+    &.layout-flex-vertical {
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        -ms-box-orient: vertical;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        & > .layout-flex-item {
+            /* 修复微信旧版本 -webkit-box 下的 -webkit-box-flex:initial 在竖直排列时的 bug */
+            -webkit-box-flex: 1;
+        }
+    }
+    /* justify */
+    &.layout-flex-justify-start {
+        -webkit-box-pack: start;
+        -webkit-justify-content: start;
+        -ms-flex-pack: start;
+        justify-content: start;
+    }
+    &.layout-flex-justify-center {
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+    }
+    &.layout-flex-justify-end {
+        -webkit-box-pack: end;
+        -webkit-justify-content: end;
+        -ms-flex-pack: end;
+        justify-content: end;
+    }
+    &.layout-flex-justify-space-between {
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+    }
+    &.layout-flex-justify-space-around {
+        -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+    }
+
+    /* align */
+    &.layout-flex-align-start {
+        -webkit-box-align: start;
+        -webkit-align-items: start;
+        -ms-flex-align: start;
+        -ms-grid-row-align: start;
+        align-items: start;
+    }
+    &.layout-flex-align-center {
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        -ms-grid-row-align: center;
+        align-items: center;
+    }
+    &.layout-flex-align-end {
+        -webkit-box-align: end;
+        -webkit-align-items: end;
+        -ms-flex-align: end;
+        -ms-grid-row-align: end;
+        align-items: end;
+    }
+
+}
+
+/*
+ * 其他独立 UI
+ */
+.layout-fixed-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,.15);
+    .btn-block {
+        border-radius: 0;
+    }
+}
